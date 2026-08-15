@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="beaststyle.css">
+</head>
+<body>
+    <a href="http://localhost:4000/main">
+    <button id="home">
+        Home
+    </button>
+</a>
+
+    <div class="container">
+        <h1>Movie Details</h1>
+        <div class="movie-details">
+            <img src="<%= image_url %>" alt="Movie Poster">
+            <div>
+            <p id="delta124">
+                <% genre.forEach(function(genre) { %>
+                    <span class="genre"><%= genre %></span>
+                <% }); %>
+            </p>
+            <div>
+            <div id="rblock">
+                <div>
+                <span id="imdb">imdb_rating</span>
+            <p id="rating"><span class="star">&#9733;</span><%= imdb %>/10(<%= votedpeople %>)</p>
+        </div>
+        
+        <div id="nddiv">
+        <span id="gelop">ur_rating:</span><br><br></div>
+        <div id="helper">
+        <span class="star">&#9733;</span>
+        <span id="Rateddata"> <%= xorgate %>/10 </span>
+        </div>
+    </div></div>
+            <div id="input_rating">
+                <form action="/rating" method="post" id="form124">
+                    <label id="levle"for="rating_given">Rate :</label>
+                    <input type="text" id="Rating_given" name="rating_given" placeholder="0 to 10" maxlength="2"><br><br><br>
+                    <button type="submit" id="delta007">Rate</button>
+                </form>
+            </div>
+            <div id="utubevideo"></div>
+        </div>
+        </div>
+        <div class="line"></div> 
+        <div class="movie-info">
+            <div id="movie_name"><%= current_movie %> (<%= year %>)</div>
+            <p><%= plot %></p>
+            <div class="line-between"></div> 
+            <p id="director"><strong class="strong">Directors:</strong><span>  </span><%= directors.join(',') %></p>
+            <p><strong class="strong">Cast:</strong><span>  </span><%= cast.join(', ') %></p>
+            <p><strong class="strong">Writers:</strong><span>  </span><%= writers.join(',') %></p>
+            <video src="https://www.imdb.com//video/vi3877612057/?ref_=tt_vi_i_1">
+
+            </video>
+        </div>
+    </div>
+    <div id="adder">
+        <template templater>
+            <div>
+            <p id="moviename" noqry ></p>
+            <img alt="movie_img" class="dangerguys" imager1234>
+        </div>
+        </template>
+    </div>
+    <script src="beastmind.js"></script>
+</body>
+</html>

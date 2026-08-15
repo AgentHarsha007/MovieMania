@@ -1,0 +1,223 @@
+.noto-color emoji-regular {
+    font-family: "Noto Color Emoji", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  
+
+.honk {
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size:35px;
+  font-variation-settings:
+    "MORF" 16,
+    "SHLN" 50;
+    display: flex;
+    text-align: center;
+    margin-left: 50px;
+    /* margin-top: 5px; */
+}
+
+#beta{
+    display: flex;
+}
+.search{
+    margin-top: 10px;;
+    display: flex;
+    width:38%;
+    padding:5px;
+
+    border: 2px solid rgb(165, 76, 43);
+    border-radius: 20px;
+    background-color: #0c0c0c;
+    text-align: center;
+    margin-left:38%;
+    margin-right:20px;
+}
+.search-input{
+    border-width: 0px;
+    width:100%;
+    outline: none;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background:transparent;
+    font-size: 20px;
+    color:rgb(207, 202, 202);
+
+}
+.material-symbols-outlined{
+    color:rgb(152, 88, 49);
+}
+#delta{
+    background-color: rgb(32, 14, 2);
+}
+#button{
+    background-color: #0c0c0c;
+    border-width: 1px;
+    border-color: coral;
+    color: white;
+    font-size: 20px;
+    margin-top: 12px;
+    height:33px;
+    border-radius: 10px;
+    margin-left: 1150px;
+}
+/* #url{
+    style   
+} */
+#login_block{
+    position: absolute;
+    /* position: sticky; */
+    top:15%;
+    left:30%;
+    border:2px solid orange;
+    padding:50px;
+    width:30%;
+    background-color:rgb(21, 18, 18);
+    color:white;
+    border-radius:30px;
+    backdrop-filter: blur(5px);
+    font-size: 30px;
+    text-align: center;
+    display: none;
+    backdrop-filter: blur(3px);
+}
+
+#k1{
+    width:60%;
+    border-color:rgb(255, 143, 103);
+    background-color: black;
+    color:azure;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 15px;
+
+}
+#k2{
+    width:60%;
+    border-color:coral;
+    background-color: black;
+    color:azure;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 15px;
+}
+#k3{
+    width:60%;
+    border-color:coral;
+    background-color: black;
+    color:azure;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 15px;
+}
+#k4{
+    width:60%;
+    border-color:coral;
+    background-color: black;
+    color:azure;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 15px;
+
+}
+.formbut {
+    border-radius:3px;
+    width:110px;
+    height:30px;
+    border-radius:10px;
+    border-color: rgb(69, 29, 14);
+    font-size: 25px;
+    padding-bottom:5px;
+    background-color: black;
+    color:white;
+}
+.ALPHA124{
+    border-radius:3px;
+    width:110px;
+    height:30px;
+    border-radius:10px;
+    border-color: rgb(69, 29, 14);
+    font-size: 25px;
+    padding-bottom:5px;
+    background-color: black;
+    color:white;
+}
+#alt4{
+    margin-right: 38%;
+}
+#alt1{
+    margin-right: 54%;
+}
+#alt2{
+    margin-right: 59%;
+}
+#alt3{
+    margin-right:53%;
+}
+.close{
+    position:relative;
+    top:0px;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: rgb(253, 251, 251);
+    text-decoration: none;
+    cursor: pointer;
+}
+#account{
+    height: 25px;
+    width: 25px;
+    border-radius:25px;
+}
+#container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    gap:1rem;
+    margin-left:40px;
+}
+
+.alpha {
+    position: relative;
+    text-align: center;
+}
+
+.alpha img.hello {
+width: 98%;
+    height: 98%;
+transition: transform 0.5s ease; 
+    border-radius: 20px;
+}
+
+.alpha:hover img.hello {
+    transform: scale(1.2); 
+    z-index: 1; 
+}
+
+.alpha > .j007 {
+    position: absolute;
+    top: -10px; 
+    left: -10px;
+    right: -10px;
+    bottom: -10px; 
+    background-color:transparent; 
+    opacity: 0.3; 
+    transition: rgb(0, 0, 0) 0.25s ease;
+}
+
+.alpha:hover > .j007 {
+    background-color:transparent; 
+}
+.blurrone {
+    filter: blur(2px); 
+}
+#drum{
+    font-size: 30px;
+    color:white;
+}
