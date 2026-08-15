@@ -1,139 +1,382 @@
 # 🎬 MoviePulse
 
-MoviePulse is a movie discovery and rating web application built with Node.js and Express. It allows users to register, sign in, browse a large movie catalog, view detailed information about a selected title, and rate movies based on their personal experience.
+MoviePulse is a full-stack movie discovery and rating web application built with **Node.js, Express.js, EJS, HTML, CSS, and JavaScript**.
 
-This project is designed as a lightweight, full-stack demonstration app using static files and JSON-based persistence for users and ratings.
+Users can register, log in, browse movies, search the catalogue, view movie details, rate movies, and receive genre-based recommendations.
+
+---
 
 ## ✨ Features
 
-- User registration and login
-- Movie browsing interface with poster-based movie cards
-- Detailed movie information page
-- IMDb-style metadata such as genre, cast, director, writers, and release year
-- Personalized movie rating system
-- User-specific rating storage in JSON files
-- Genre-based recommendation suggestions
-- Clean front-end experience using HTML, CSS, and JavaScript
+* User registration and login
+* Movie browsing and search
+* Movie details with metadata
+* Personal movie ratings
+* Updating existing ratings
+* Genre-based recommendations
+* Dynamic movie-card generation
+* EJS server-side rendering
+* JSON-based local data storage
 
-## 🛠️ Tech Stack
+---
 
-- Node.js
-- Express.js
-- EJS Templates
-- JavaScript
-- HTML & CSS
-- JSON file storage
-
-## 🧩 Project Structure
+## 🏗️ Architecture
 
 ```text
-CS-Project/
-├── database/
-│   ├── user_data.json
-│   └── <user>_rating.json
-├── movie_img/
-│   └── movie posters
+Browser
+   │
+   ▼
+Express Server
+   │
+   ├── HTML / EJS pages
+   ├── Client-side JavaScript
+   └── JSON movie/user data
+```
+
+The main flow is:
+
+```text
+search.html
+    ↓
+server.js
+    ↓
+main.ejs + main3.js
+    ↓
+Movie Selection
+    ↓
+beast.ejs
+    ↓
+Rating
+```
+
+---
+
+## 📁 Project Structure
+
+```text
+MovieMania/
+│
 ├── python-files/
-│   ├── extract.py
-│   └── extractimages.py
 ├── views/
-│   ├── beast.ejs
-│   ├── main.ejs
-│   ├── beastmind.js
-│   ├── beaststyle.css
-│   ├── main1.css
-│   └── main2.js
-├── .env
 ├── .gitignore
+├── README.md
 ├── Register.html
 ├── alpha.html
-├── current_movie.json
-├── current_user.json
 ├── javascript.js
+├── package-lock.json
 ├── package.json
 ├── search.css
 ├── search.html
 ├── server.js
-├── top100_k.json
-├── top100_m.json
-├── top100_n.json
-├── output.json
-├── hello.json
-├── README.md
-└── package-lock.json
+└── top100_k.json
 ```
 
-## 🚀 Getting Started
+---
 
-### 1. Install dependencies
+## 🧩 File-by-File
+
+### `server.js`
+
+The **main backend** of the application.
+
+Handles:
+
+* Express server setup
+* Routes and form submissions
+* Registration and login
+* Movie selection
+* Movie data lookup
+* Rating storage and updates
+* EJS rendering
+
+The server runs on **port 4000**.
+
+---
+
+### `search.html`
+
+The **landing and login page**.
+
+Contains:
+
+* MoviePulse branding
+* Login form
+* Registration link
+* Login interface
+
+It loads `javascript.js` for browser-side interactions.
+
+---
+
+### `Register.html`
+
+The **user registration page**.
+
+Collects user information and sends it to:
+
+```text
+POST /Register
+```
+
+which is handled by `server.js`.
+
+---
+
+### `javascript.js`
+
+Client-side JavaScript for the **landing/login interface**.
+
+It controls interactive behaviour on `search.html`, such as the login interface and related UI actions.
+
+---
+
+# 🖥️ `views/`
+
+The `views` directory contains the main EJS pages and their frontend assets.
+
+### `views/main.ejs`
+
+The **main dashboard template** shown after login.
+
+Contains:
+
+* Welcome message
+* Search bar
+* Recommendation button
+* Logout control
+* Movie-card template
+
+It loads `main3.js`.
+
+### `views/main1.css`
+
+CSS for the dashboard.
+
+Controls:
+
+* Header
+* Search bar
+* Movie-card grid
+* Poster styling
+* Hover effects
+* Rating stars
+* Recommendation and logout buttons
+
+### `views/main3.js`
+
+The **main dashboard JavaScript**.
+
+Responsible for:
+
+* Loading movie data from `top100_k.json`
+* Creating movie cards dynamically
+* Handling movie selection
+* Client-side movie search
+* Generating genre-based recommendations
+
+The recommendation system uses the user's ratings to estimate preferred genres and rank movies accordingly.
+
+### `views/main2.js`
+
+An **earlier/alternative dashboard implementation**.
+
+It uses a different movie/template structure and is not the main script currently loaded by `main.ejs`, which uses `main3.js`.
+
+### `views/beast.ejs`
+
+The **movie details page**.
+
+Displays:
+
+* Movie title
+* Poster
+* Plot
+* Genre
+* IMDb rating
+* Year
+* Director
+* Writers
+* Cast
+* User rating
+
+It also provides the movie-rating interface.
+
+### `views/beaststyle.css`
+
+CSS styling for the movie details page.
+
+### `views/beastmind.js`
+
+Client-side JavaScript for the movie details page, including interactions related to the rating/details interface.
+
+---
+
+## 🐍 `python-files/`
+
+Contains Python scripts used during the **movie-data preparation stage**.
+
+### `extract.py`
+
+Used for extracting/preparing movie data.
+
+### `extractingimages.py`
+
+Used for extracting/preparing movie images.
+
+These scripts support the data-generation process rather than the Node.js runtime.
+
+---
+
+## 📄 `top100_k.json`
+
+The application's **movie catalogue**.
+
+Contains movie information such as:
+
+* Title
+* Year
+* Runtime
+* IMDb rating
+* Genre
+* Director
+* Writers
+* Cast
+* Plot
+* Poster information
+
+`main3.js` uses it to build movie cards, while `server.js` uses it when preparing movie details.
+
+---
+
+## 📦 `package.json`
+
+Defines the Node.js project and its dependencies, including:
+
+* Express
+* EJS
+* body-parser
+* dotenv
+* nodemon
+
+Dependencies can be installed with:
 
 ```bash
 npm install
 ```
 
-### 2. Run the application
+### `package-lock.json`
+
+Locks the dependency versions so the project can be installed consistently.
+
+---
+
+## 🔒 `.gitignore`
+
+Prevents files such as:
+
+```text
+node_modules/
+.env
+.DS_Store
+*.log
+```
+
+from being committed to Git.
+
+---
+
+## 🔄 Application Flow
+
+```text
+             User
+              │
+              ▼
+        search.html
+         │       │
+      Login    Register
+         │       │
+         └───┬───┘
+             ▼
+         server.js
+             │
+             ▼
+          main.ejs
+             │
+             ▼
+          main3.js
+             │
+      ┌──────┼──────┐
+      ▼      ▼      ▼
+    Search  Movie  Recommend
+             │
+             ▼
+          beast.ejs
+             │
+             ▼
+           Rating
+             │
+             ▼
+          server.js
+```
+
+---
+
+## 🚀 Running the Project
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the server
 
 ```bash
 node server.js
 ```
 
-Or use the development script:
-
-```bash
-npm run devStart
-```
-
-### 3. Open the app in your browser
+### Open the application
 
 ```text
 http://localhost:4000
 ```
 
-## 📁 Key Files
+---
 
-- `server.js` — main Express server and route handling
-- `search.html` — login landing page
-- `Register.html` — registration form
-- `views/main.ejs` — main user dashboard
-- `views/beast.ejs` — movie details and rating page
-- `database/user_data.json` — registered users
-- `top100_k.json` — movie metadata used across the app
+## ⚠️ Current Limitations
 
-## 🔐 How It Works
+This is primarily an academic/learning project.
 
-1. A user registers with their name, date of birth, email, and password.
-2. The app stores the user data in `database/user_data.json`.
-3. The user logs in with email and password.
-4. The system loads the user dashboard and movie catalog.
-5. When a movie is selected, the details page shows relevant metadata and allows rating.
-6. Each user's movie ratings are saved in a separate JSON file such as `database/<user>_rating.json`.
+Current limitations include:
 
-## 📊 Data Model
+* JSON-based persistence instead of a database
+* Passwords are not hashed
+* Authentication is not production-grade
+* Application state relies on local files
+* Limited validation and security
 
-The app stores the following kinds of data:
+---
 
-- User information: `name`, `date_of_birth`, `email`, `password`
-- Movie ratings: `movie_name`, `rating`, `genre`
-- Current user and current movie values used to manage active session state
+## 🔮 Future Improvements
 
-## ⚠️ Notes
+Possible extensions include:
 
-- This is a learning/demo project rather than a production-ready application.
-- Data is stored in local JSON files instead of a database such as MongoDB or MySQL.
-- The app is best suited for academic and personal project use.
+* MongoDB/PostgreSQL integration
+* Password hashing with `bcrypt`
+* Proper session/JWT authentication
+* Improved search and filtering
+* More advanced recommendation algorithms
+* User profiles and watchlists
+* Production deployment
+
+---
 
 ## 📜 License
 
-This project is licensed under the ISC License.
+This project is licensed under the **ISC License**.
 
-## 🙌 Project Purpose
+---
 
-MoviePulse demonstrates how to build a complete web application with:
+## 👨‍💻 Project
 
-- backend routing
-- UI rendering with templates
-- front-end interactivity
-- JSON-based persistence
-- data-driven movie browsing
-
-If you are preparing to push this project to GitHub, this README is structured to look clean and professional in a repository.
+**MoviePulse** — a lightweight movie discovery, rating, and recommendation application built with Node.js and Express.
